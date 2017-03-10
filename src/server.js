@@ -2,14 +2,14 @@ import Hapi from 'hapi';
 import Path from 'path';
 import Hoek from 'hoek';
 
-const server = new Hapi.Server();
+const server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0');
 const defaultContext = {
   title: 'Testy Title'
 };
 
-server.connection({
-  port: 8080
-});
+// server.connection({
+//   port: 8080
+// });
 
 // server.register(require('vision'), (err) => {
 //   Hoek.assert(!err, err);
