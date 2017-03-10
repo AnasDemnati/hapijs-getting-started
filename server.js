@@ -2,14 +2,15 @@ const Hapi = require('hapi');
 const Path = require('path');
 const Hoek = require('hoek');
 
-const server = new Hapi.Server(+process.env.PORT || 3000, '0.0.0.0');
+const server = new Hapi.Server();
 const defaultContext = {
   title: 'Testy Title'
 };
 
-// server.connection({
-//   port: 8080
-// });
+server.connection({
+  port: +process.env.PORT || 3000,
+  host: process.env.HOSTNAME
+});
 
 // server.register(require('vision'), (err) => {
 //   Hoek.assert(!err, err);
