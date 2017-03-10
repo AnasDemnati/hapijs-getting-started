@@ -1,6 +1,6 @@
-import Hapi from 'hapi';
-import Path from 'path';
-import Hoek from 'hoek';
+const Hapi = require('hapi');
+const Path = require('path');
+const Hoek = require('hoek');
 
 const server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0');
 const defaultContext = {
