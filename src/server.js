@@ -11,20 +11,20 @@ server.connection({
   port: 8080
 });
 
-server.register(require('vision'), (err) => {
-  Hoek.assert(!err, err);
-
-  server.views({
-    engines: {
-      html: require('handlebars')
-    },
-    context: defaultContext,
-    relativeTo: __dirname,
-    path: './templates',
-    layoutPath: './templates/layout',
-    helpersPath: './templates/helpers'
-  });
-});
+// server.register(require('vision'), (err) => {
+//   Hoek.assert(!err, err);
+//
+//   server.views({
+//     engines: {
+//       html: require('handlebars')
+//     },
+//     context: defaultContext,
+//     relativeTo: __dirname,
+//     path: './templates',
+//     layoutPath: './templates/layout',
+//     helpersPath: './templates/helpers'
+//   });
+// });
 
 server.route({
   method: 'GET',
@@ -41,10 +41,7 @@ server.route({
   handler: (request, reply) => {
     const user = request.params.user ? encodeURIComponent(request.params.user) : 'stranger';
 
-    reply.view('index', {
-      textReply: 'hello',
-      data: user
-    });
+    reply(user);
   },
   config: {
     description: 'Description',
