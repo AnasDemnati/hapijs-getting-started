@@ -30,7 +30,8 @@ server.route({
   method: 'GET',
   path: '/testy',
   handler: (request, reply) => {
-    reply.view('index', {textReply: 'Reply !'});
+    console.log('**request**');
+    reply('Reply !');
   }
 });
 
