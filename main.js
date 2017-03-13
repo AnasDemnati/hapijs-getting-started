@@ -78,6 +78,21 @@ server.route({
     }
 });
 
+server.route({
+  method: 'GET',
+  path: '/testy/{user?}',
+  handler: function (request, reply) {
+    const user = request.params.user ? encodeURIComponent(request.params.user) : 'stranger';
+
+    reply(user);
+  },
+  config: {
+    description: 'Description',
+    notes: 'Notes',
+    tags: ['api', 'greeting']
+  }
+});
+
 server.start(function () {
 
     console.log('Server started at [' + server.info.uri + ']');
