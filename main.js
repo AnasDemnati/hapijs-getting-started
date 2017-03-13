@@ -97,6 +97,7 @@ server.route({
     tags: ['api', 'greeting']
   }
 });
+
 server.register(require('vision'), function (err) {
 
     if (err) {
