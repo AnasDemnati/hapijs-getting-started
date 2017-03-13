@@ -2,6 +2,7 @@ var Hapi = require('hapi');
 var Joi = require('joi');
 const Path = require('path');
 const Hoek = require('hoek');
+const Vision = require('vision');
 
 const defaultContext = {
   title: 'Testy Title'
@@ -98,7 +99,7 @@ server.route({
   }
 });
 
-server.register(require('vision'), (err) => {
+server.register(Vision, (err) => {
   Hoek.assert(!err, err);
 
   server.views({
