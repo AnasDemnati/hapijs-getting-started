@@ -1,6 +1,11 @@
 var Hapi = require('hapi');
 var Joi = require('joi');
+const Path = require('path');
+const Hoek = require('hoek');
 
+const defaultContext = {
+  title: 'Testy Title'
+};
 
 var internals = {};
 
@@ -91,6 +96,21 @@ server.route({
     notes: 'Notes',
     tags: ['api', 'greeting']
   }
+});
+
+server.register(require('vision'), (err) => {
+  Hoek.assert(!err, err);
+
+  server.views({
+    engines: {
+      html: require('handlebars')
+    },
+    context: defaultContext,
+    relativeTo: __dirname,
+    path: './templates',
+    layoutPath: './templates/layout',
+    helpersPath: './templates/helpers'
+  });
 });
 
 server.start(function () {
