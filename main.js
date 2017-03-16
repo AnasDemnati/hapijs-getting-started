@@ -98,23 +98,23 @@ server.route({
   }
 });
 
-server.register(require('vision'), function (err) {
-
-    if (err) {
-        throw err;
-    }
-
-    server.views({
-      engines: {
-        html: require('handlebars')
-      },
-      context: defaultContext,
-      relativeTo: __dirname,
-      path: './templates',
-      layoutPath: './templates/layout',
-      helpersPath: './templates/helpers'
-    });
-});
+// server.register(require('vision'), function (err) {
+//
+//     if (err) {
+//         throw err;
+//     }
+//
+//     server.views({
+//       engines: {
+//         html: require('handlebars')
+//       },
+//       context: defaultContext,
+//       relativeTo: __dirname,
+//       path: './templates',
+//       layoutPath: './templates/layout',
+//       helpersPath: './templates/helpers'
+//     });
+// });
 
 server.start(function () {
 
