@@ -98,19 +98,19 @@ server.route({
   }
 });
 
-server.register(require('inert'), (err) => {
-
-    if (err) {
-        throw err;
-    }
-
-    server.route({
-        method: 'GET',
-        path: '/quotes',
-        handler: function (request, reply) {
-            reply.file('proverbes.json');
-        }
-    });
+// server.register(require('inert'), (err) => {
+//
+//     if (err) {
+//         throw err;
+//     }
+//
+//     server.route({
+//         method: 'GET',
+//         path: '/quotes',
+//         handler: function (request, reply) {
+//             reply.file('proverbes.json');
+//         }
+//     });
 
 // server.register(require('vision'), function (err) {
 //
