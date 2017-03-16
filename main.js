@@ -98,6 +98,13 @@ server.route({
   }
 });
 
+server.route({
+    method: 'GET',
+    path: '/quotes',
+    handler: {
+        file: 'proverbes.json'
+    }
+
 // server.register(require('inert'), (err) => {
 //
 //     if (err) {
