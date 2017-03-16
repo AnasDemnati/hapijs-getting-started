@@ -104,6 +104,7 @@ server.route({
     handler: {
         file: 'proverbes.json'
     }
+});
 
 // server.register(require('inert'), (err) => {
 //
