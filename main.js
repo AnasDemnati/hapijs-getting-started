@@ -100,6 +100,14 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/index',
+    handler: {
+        file: 'public/index.html'
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/quotes',
     handler: {
         file: 'proverbes.json'
