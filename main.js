@@ -102,7 +102,7 @@ server.route({
     method: 'GET',
     path: '/index',
     handler: {
-        file: 'public/index.html'
+        file: 'public/index.vue'
     }
 });
 
