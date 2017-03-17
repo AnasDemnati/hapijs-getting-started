@@ -1,7 +1,7 @@
 {
   "name": "proverbe-scraper",
   "description": "proverbe public data scraper",
-  "main": "index.js",
+  "main": "main.js",
   "authors": [
     "Lazhari <lazhari.mohammed@outlook.com>"
   ],
