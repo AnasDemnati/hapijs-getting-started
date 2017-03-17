@@ -40,8 +40,8 @@
 
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
-    <script type="text/javascript">
-    var Axios = require('axios');
+    <script>
+    import axios from 'axios';
 
       new Vue({
         el: '#quote-list',
@@ -53,7 +53,7 @@
         },
         methods: {
           fetchQuotes: function(){
-            Axios.get(`https://chats-and-hats.herokuapp.com/quotes`)
+            axios.get(`https://chats-and-hats.herokuapp.com/quotes`)
             .then(response => {
               this.quotes = response.data;
             })
