@@ -15,14 +15,15 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
+    "axios": "^0.15.3",
+    "bower": "^1.8.0",
     "handlebars": "^4.0.6",
     "hapi": "^6.2.0",
     "hoek": "^4.1.0",
     "inert": "^4.1.0",
     "joi": "^4.6.1",
     "path": "^0.12.7",
-    "vision": "^4.1.1",
-    "bower": "^1.8.0"
+    "vision": "^4.1.1"
   },
   "engines": {
     "node": ">=0.10.x"
