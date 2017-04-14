@@ -108,6 +108,14 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/speechy',
+    handler: {
+        file: 'public/speechy.html'
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/quotes',
     handler: {
         file: 'proverbes.json'

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="citationApp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/loader.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="./css/edit-modal.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <style media="screen">
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    <body ng-controller="AppCtrl">
+        <header>
+<!--
+            <div class="alert alert-danger">
+              <h4>
+                {{notification}}
+              </h4>
+            </div>
+-->
+            <div id="wrap" class="row">
+                <div class="col-md-12 text-center">
+
+                    <h1>Citation App <small>Simple and clean</small></h1>
+                    <hr>
+                </div>
+            </div>
+        </header>
+        <div id="wrap" class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="search" placeholder="search...." ng-model="search.$">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <select class="form-control" name="author">
+                                  <option value=""></option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                  <a href="#" class="btn btn-md btn-success" data-toggle="modal" data-target="#myModal" style="float: right;">
+                    New quote
+                  </a>
+                </div>
+            </div>
+            <div class="row">
+                <!-- <div class="col-md-10 col-md-offset-1" ng-repeat="citation in citations | filter: search" ng-if="!citationLoading">
+                    <div class="row" style="background-color: rgba(0, 0, 0, 0.02);">
+                        <a href="#" class="btn btn-xs btn-danger" ng-click="deleteCitation(citation._id)" style="float: right;">
+                            <span class="glyphicon glyphicon-remove">
+                            </span>
+                        </a>
+                        <a href="#" ng-click="modalType(1); toUpdateCitation(citation)" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-warning" style="float: right;">
+                            <span class="glyphicon glyphicon-edit">
+                            </span>
+                        </a>
+                    </div>
+                    <div class="row" style="background-color: rgba(0, 0, 0, 0.02);">
+                        <blockquote>
+                            <p>{{citation.quote}}</p>
+
+                            <cite class="pull-right">{{citation.author}}</cite>
+                        </blockquote>
+                    </div>
+                    <hr>
+                </div> -->
+
+                <div class="col-md-12 text-center">
+                    <div class="spinner">
+                        <div class="dot1"></div>
+                        <div class="dot2"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          ×
+                        </button>
+                        <br><br>
+                        <div class="form-group">
+                          <textarea id="quote" class="form-control" rows="3" ng-model="citationModal.quote">
+                          </textarea>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="author" ng-model="citationModal.author">
+                        </div>
+                        <hr>
+                        <div class="form-group" ng-show="modalTyper">
+                            <button ng-click="newCitation(citationModal)" type="submit" class="btn btn-success btn-lg" data-dismiss="modal">
+                                Add
+                            </button>
+                        </div>
+                        <div class="form-group" ng-show="!modalTyper">
+                            <button ng-click="updateCitation(citationModal)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+        <script>
+        if (annyang) {
+          // Let's define our first command. First the text we expect, and then the function it should call
+          var commands = {
+            'hide': function() {
+              console.log('hide');
+            }
+          };
+
+          // Add our commands to annyang
+          annyang.addCommands(commands);
+
+          // Start listening. You can call this here, or attach this call to an event, button, etc.
+          annyang.start();
+        }
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" charset="utf-8"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+
+        <!--Angular Lib-->
+
+        <!-- <script src="../vendor/angular/angular.min.js" charset="utf-8"></script> -->
+
+        <!--App dependencies-->
+        <!-- <script src="./app/app.js" charset="utf-8"></script>
+        <script src="./app/services/data-store.js" charset="utf-8"></script>
+        <script src="./app/controllers/app.controller.js" charset="utf-8"></script> -->
+
+    </body>
+</html>

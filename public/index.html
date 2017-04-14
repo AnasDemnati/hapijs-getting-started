@@ -41,38 +41,38 @@
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <script type="text/javascript">
-    import axios from 'axios';
-
-      new Vue({
-        el: '#quote-list',
-        data: {
-          quotes: []
-        },
-        ready: function () {
-          this.fetchQuotes();
-        },
-        methods: {
-          fetchQuotes: function(){
-            axios.get(`http://jsonplaceholder.typicode.com/posts`)
-            .then(response => {})
-            .catch(e => {
-              this.errors.push(e)
-            })
-
-            $.ajax({
-            url: 'https://chats-and-hats.herokuapp.com/quotes',
-            type: 'get',
-            dataType: 'json',
-            async: true,
-            success: function(data) {
-              var self = this;
-
-              self.quotes = data;
-            }
-          });
-        }
-      }
-    });
+    // import axios from 'axios';
+    //
+    //   new Vue({
+    //     el: '#quote-list',
+    //     data: {
+    //       quotes: []
+    //     },
+    //     ready: function () {
+    //       this.fetchQuotes();
+    //     },
+    //     methods: {
+    //       fetchQuotes: function(){
+    //         axios.get(`http://jsonplaceholder.typicode.com/posts`)
+    //         .then(response => {})
+    //         .catch(e => {
+    //           this.errors.push(e)
+    //         })
+    //
+    //         $.ajax({
+    //         url: 'https://chats-and-hats.herokuapp.com/quotes',
+    //         type: 'get',
+    //         dataType: 'json',
+    //         async: true,
+    //         success: function(data) {
+    //           var self = this;
+    //
+    //           self.quotes = data;
+    //         }
+    //       });
+    //     }
+    //   }
+    // });
     </script>
 
     </script>
