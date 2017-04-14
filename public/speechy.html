@@ -56,14 +56,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <!-- <div class="col-md-10 col-md-offset-1" ng-repeat="citation in citations | filter: search" ng-if="!citationLoading">
+                    <div class="row" style="background-color: rgba(0, 0, 0, 0.02);">
+                        <a href="#" class="btn btn-xs btn-danger" ng-click="deleteCitation(citation._id)" style="float: right;">
+                            <span class="glyphicon glyphicon-remove">
+                            </span>
+                        </a>
+                        <a href="#" ng-click="modalType(1); toUpdateCitation(citation)" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-warning" style="float: right;">
+                            <span class="glyphicon glyphicon-edit">
+                            </span>
+                        </a>
+                    </div>
                     <div class="row" style="background-color: rgba(0, 0, 0, 0.02);">
                         <blockquote>
-                            <p id="talk_pool"></p>
+                            <p>{{citation.quote}}</p>
+
+                            <cite class="pull-right">{{citation.author}}</cite>
                         </blockquote>
                     </div>
                     <hr>
-                </div>
+                </div> -->
 
                 <div class="col-md-12 text-center">
                     <div class="spinner">
@@ -112,40 +124,20 @@
           var commands = {
             'hide': function() {
               console.log('hide');
-              document.getElementById('#talk_pool').text = 'hide';
+            },
+            'salut': function() {
+              console.log('salut');
             },
             'show': function() {
               console.log('show');
-              $document.getElementById('#talk_pool').text = 'show';
             },
             'delete': function() {
               console.log('delete');
-              document.getElementById('#talk_pool').text = 'delete';
-            },
-            'add': function() {
-              console.log('add');
-              document.getElementById('#talk_pool').text = 'add';
             }
           };
 
           // Add our commands to annyang
           annyang.addCommands(commands);
-
-          annyang.addCallback('soundstart', function() {
-            console.log('sound detected');
-          });
-
-          annyang.addCallback('result', function() {
-            console.log('sound stopped');
-          });
-
-          annyang.addCallback('resultMatch', function(userSaid, commandText, phrases) {
-            console.log(userSaid); // sample output: 'hello'
-            console.log(commandText); // sample output: 'hello (there)'
-            console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
-          });
-
-          annyang.trigger('Hide');
 
           // Start listening. You can call this here, or attach this call to an event, button, etc.
           annyang.start();
