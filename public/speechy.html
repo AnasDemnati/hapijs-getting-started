@@ -143,9 +143,9 @@
             console.log(userSaid); // sample output: 'hello'
             console.log(commandText); // sample output: 'hello (there)'
             console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
-            $('#talk_pool').val = userSaid;
-            $('#talk_pool').value = userSaid;
-            $('#talk_pool').val(userSaid);
+            // $('#talk_pool').val = userSaid;
+            // $('#talk_pool').value = userSaid;
+            $('#talk_pool').val($('#talk_pool').val() + ' ' + userSaid);
 
           });
 
