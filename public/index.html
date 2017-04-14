@@ -40,7 +40,7 @@
 
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
-    <script>
+    <script type="text/javascript">
     import axios from 'axios';
 
       new Vue({
@@ -53,13 +53,23 @@
         },
         methods: {
           fetchQuotes: function(){
-            axios.get(`https://chats-and-hats.herokuapp.com/quotes`)
-            .then(response => {
-              this.quotes = response.data;
-            })
+            axios.get(`http://jsonplaceholder.typicode.com/posts`)
+            .then(response => {})
             .catch(e => {
               this.errors.push(e)
             })
+
+            $.ajax({
+            url: 'https://chats-and-hats.herokuapp.com/quotes',
+            type: 'get',
+            dataType: 'json',
+            async: true,
+            success: function(data) {
+              var self = this;
+
+              self.quotes = data;
+            }
+          });
         }
       }
     });
