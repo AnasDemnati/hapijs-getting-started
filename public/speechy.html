@@ -58,9 +58,9 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="row" style="background-color: rgba(0, 0, 0, 0.02);">
-                        <blockquote>
-                            <p id="talk_pool"></p>
-                        </blockquote>
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="talk_pool">
+                        </div>
                     </div>
                     <hr>
                 </div>
@@ -112,19 +112,19 @@
           var commands = {
             'hide': function() {
               console.log('hide');
-              $('#talk_pool').innerHTML = 'hide';
+              $('#talk_pool').val = 'hide';
             },
             'show': function() {
               console.log('show');
-              $('#talk_pool').textContent = 'show';
+              $('#talk_pool').value = 'show';
             },
             'delete': function() {
               console.log('delete');
-              $('#talk_pool').nodeValue = 'delete';
+              $('#talk_pool').val('delete');
             },
             'add': function() {
               console.log('add');
-              $('#talk_pool').innerHTML = 'add';
+              // $('#talk_pool').innerHTML = 'add';
             }
           };
 
@@ -143,6 +143,10 @@
             console.log(userSaid); // sample output: 'hello'
             console.log(commandText); // sample output: 'hello (there)'
             console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
+            $('#talk_pool').val = userSaid;
+            $('#talk_pool').value = userSaid;
+            $('#talk_pool').val(userSaid);
+
           });
 
           // annyang.trigger('Hide');
