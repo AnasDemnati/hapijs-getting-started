@@ -112,16 +112,19 @@
           var commands = {
             'hide': function() {
               console.log('hide');
-              $('#talk_pool').text = 'hide';
+              document.getElementById('#talk_pool').text = 'hide';
             },
             'show': function() {
-              $('#talk_pool').text = 'show';
+              console.log('show');
+              $document.getElementById('#talk_pool').text = 'show';
             },
             'delete': function() {
-              $('#talk_pool').text = 'delete';
+              console.log('delete');
+              document.getElementById('#talk_pool').text = 'delete';
             },
             'add': function() {
-              $('#talk_pool').text = 'add';
+              console.log('add');
+              document.getElementById('#talk_pool').text = 'add';
             }
           };
 
