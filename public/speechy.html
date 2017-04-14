@@ -130,12 +130,21 @@
 
           // Add our commands to annyang
           annyang.addCommands(commands);
-          
+
+          annyang.addCallback('soundstart', function() {
+            console.log('sound detected');
+          });
+
+          annyang.addCallback('result', function() {
+            console.log('sound stopped');
+          });
+
           annyang.addCallback('resultMatch', function(userSaid, commandText, phrases) {
             console.log(userSaid); // sample output: 'hello'
             console.log(commandText); // sample output: 'hello (there)'
             console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
           });
+          
           // Start listening. You can call this here, or attach this call to an event, button, etc.
           annyang.start();
         }
